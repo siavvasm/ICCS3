@@ -221,4 +221,12 @@ public class ICCS3 {
 		System.out.println(revCommits.size());
 	}
 
+	private static List<RevCommit> filterRevCommitStartingPoint(List<RevCommit> rcs, RevCommit startRevCommit) {
+		for (int i = 0; i < rcs.size(); i++)
+			if (Objects.equals(startRevCommit.getName(), rcs.get(i).getName()))
+				rcs = rcs.subList(i + 1, rcs.size());
+
+		return rcs;
+	}
+
 }
